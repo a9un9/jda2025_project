@@ -1,0 +1,47 @@
+portfolio-app/
+├── components/
+│   ├── ProjectCard.tsx           # Komponen project (client)
+│   ├── ProjectForm.tsx           # Komponen form tambah/edit (admin)
+│   ├── AdminNavbar.tsx           # Navigasi admin
+│   └── LangSwitcher.tsx          # Ganti bahasa
+│
+├── lib/
+│   ├── db.ts                     # Koneksi ke PostgreSQL (Neon)
+│   ├── auth.ts                   # Cek login sederhana
+│   └── translate.ts              # Fungsi translasi i18n manual
+│
+├── locales/
+│   ├── en.json                   # Bahasa Inggris
+│   └── id.json                   # Bahasa Indonesia
+│
+├── middleware.ts                # Middleware untuk proteksi route admin
+│
+├── pages/
+│   ├── index.tsx                # Landing page (client)
+│   ├── project/
+│   │   └── [id].tsx             # Detail project (client)
+│   │
+│   ├── admin/
+│   │   ├── index.tsx            # Dashboard admin
+│   │   ├── login.tsx            # Login admin
+│   │   ├── add.tsx              # Tambah project
+│   │   └── edit/
+│   │       └── [id].tsx         # Edit project
+│   │
+│   ├── api/
+│   │   ├── auth/
+│   │   │   └── login.ts         # Login API
+│   │   └── projects/
+│   │       ├── index.ts         # GET all / POST
+│   │       └── [id].ts          # GET / PUT / DELETE project by ID
+│
+├── public/                      # Gambar, favicon, dll
+│
+├── styles/
+│   └── globals.css
+│
+├── .env                         # DATABASE_URL, token secret
+├── next.config.js               # Konfigurasi i18n
+├── tailwind.config.js
+├── tsconfig.json
+└── README.md
