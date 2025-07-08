@@ -22,7 +22,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   // Inside the Search Component...
   const handleSearch = useDebouncedCallback((term) => {
-    console.log(`Searching... ${term}`);
+    // console.log(`Searching... ${term}`);
   
     const params = new URLSearchParams(searchParams);
     if (term) {
