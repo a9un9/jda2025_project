@@ -7,9 +7,16 @@ import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { fetchInvoicesPages } from '@/app/lib/data';
-import type { PageProps } from '@/app/lib/types';
 
-export default async function Page({ searchParams }: PageProps) {
+
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
 
@@ -33,4 +40,3 @@ export default async function Page({ searchParams }: PageProps) {
     </div>
   );
 }
-
