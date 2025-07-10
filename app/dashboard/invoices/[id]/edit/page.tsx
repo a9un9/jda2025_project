@@ -1,6 +1,11 @@
 import Form from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
+import { type Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Edit Customer | Acme Dashboard',
+};
 
 export default async function Page(props: any) {
   const { id } = await props.params;
