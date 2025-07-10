@@ -11,6 +11,7 @@ import {
 import { formatCurrency } from './utils';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+// import { sql } from '@vercel/postgres';
 
 export async function fetchRevenue() {
   try {
