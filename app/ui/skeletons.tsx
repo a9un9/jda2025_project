@@ -216,3 +216,67 @@ export function InvoicesTableSkeleton() {
     </div>
   );
 }
+
+export function ProductDetailSkeleton() {
+  return (
+    <div className="relative bg-white rounded-3xl shadow-xl p-10 max-w-2xl w-full animate-pulse">
+      <div className="absolute top-[-20px] right-[-20px] opacity-10">
+        <div className="h-32 w-32 rounded-full bg-blue-100" />
+      </div>
+
+      <div className="flex items-center gap-4 mb-6">
+        <div className="h-10 w-10 rounded-full bg-blue-200" />
+        <div className="h-8 w-48 rounded bg-gray-200" />
+      </div>
+
+      <div className="mb-4 space-y-2">
+        <div className="h-5 w-full rounded bg-gray-200" />
+        <div className="h-5 w-4/5 rounded bg-gray-200" />
+        <div className="h-5 w-3/4 rounded bg-gray-200" />
+      </div>
+
+      <div className="h-8 w-32 rounded-full bg-blue-100 mb-6" />
+
+      <div className="h-4 w-40 rounded bg-blue-200" />
+    </div>
+  );
+}
+
+export function ProductSkeleton() {
+  return (
+    <div className="relative bg-white rounded-3xl shadow-xl p-10 max-w-2xl w-full animate-pulse">
+      <div className="absolute top-[-20px] right-[-20px] opacity-10">
+        <div className="h-32 w-32 rounded-full bg-blue-100" />
+      </div>
+
+      <div className="flex items-center gap-4 mb-6">
+        <div className="h-10 w-10 rounded-full bg-blue-200" />
+        <div className="h-8 w-48 rounded bg-gray-200" />
+      </div>
+
+      <div className="mb-4 space-y-2">
+        <div className="h-5 w-full rounded bg-gray-200" />
+        <div className="h-5 w-4/5 rounded bg-gray-200" />
+        <div className="h-5 w-3/4 rounded bg-gray-200" />
+      </div>
+
+      <div className="h-8 w-32 rounded-full bg-blue-100 mb-6" />
+
+      <div className="h-4 w-40 rounded bg-blue-200" />
+    </div>
+  );
+}
+
+export function NotFoundSkeleton() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[80vh] animate-pulse text-center px-4">
+      <div className="h-24 w-24 rounded-full bg-blue-100 mb-6" />
+      <div className="h-10 w-40 rounded bg-gray-200 mb-4" />
+      <div className="h-5 w-80 rounded bg-gray-200 mb-2" />
+      <div className="h-5 w-72 rounded bg-gray-200 mb-8" />
+      <div className="h-10 w-40 rounded bg-blue-200 mb-10" />
+      <div className="h-4 w-32 rounded bg-gray-200" />
+    </div>
+  );
+}
+
