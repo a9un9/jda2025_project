@@ -78,7 +78,7 @@ export default function ProductDetailPage() {
         <div className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-6">
           Rp {product.price.toLocaleString('id-ID')}
         </div>
-
+        <br/>
         <Link
           href="/dashboard/products"
           className="inline-block mt-4 text-blue-500 hover:text-blue-700 text-sm underline"
