@@ -7,8 +7,8 @@ import { CubeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { ProductDetailSkeleton } from '@/app/ui/skeletons'; // pastikan path sesuai
 
-export default function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Page(props: any) {
+  const { id } = await props.params;
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
