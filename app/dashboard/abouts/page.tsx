@@ -1,23 +1,37 @@
-'use client';
+import { UserIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { type Metadata } from 'next';
 
-import Link from 'next/link';
-import { FaceFrownIcon } from '@heroicons/react/24/outline';
+export const metadata: Metadata = {
+  title: 'About | Acme Dashboard',
+};
 
-export default function Page() {
+export default function AboutPage() {
   return (
-    <main className="flex min-h-[80vh] flex-col items-center justify-center px-4 text-center">
-      <FaceFrownIcon className="h-24 w-24 text-blue-500 mb-6 animate-bounce" />
-      <h1 className="text-5xl font-bold text-gray-800 mb-4">Oops!</h1>
-      <p className="text-lg text-gray-600 mb-8">
-        We couldn&apos;t find the page you were looking for.
-      </p>
-      <Link
-        href="/dashboard"
-        className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-500"
-      >
-        Back to Home
-      </Link>
-      <p className="mt-10 text-sm text-gray-400">Error code: 404 - Not Found</p>
+    <main className="min-h-screen bg-white px-6 py-16 md:px-20">
+      <section className="max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Tentang Kami</h1>
+        <p className="text-gray-600 text-lg mb-10">
+          Kami adalah sekelompok pengembang yang percaya bahwa ngoding bisa serius, tapi tampilannya harus tetap santai.
+        </p>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+          <div className="flex flex-col items-center">
+            <UserIcon className="h-12 w-12 text-blue-500 mb-2" />
+            <h2 className="text-xl font-semibold text-gray-800">Siapa Kami</h2>
+            <p className="text-gray-600 text-sm text-center mt-1">
+              Kami adalah tim developer yang senang debug sambil ngopi, dan percaya bahwa commit bagus diawali dengan mood bagus.
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <SparklesIcon className="h-12 w-12 text-blue-500 mb-2" />
+            <h2 className="text-xl font-semibold text-gray-800">Misi Kami</h2>
+            <p className="text-gray-600 text-sm text-center mt-1">
+              Membuat aplikasi yang cepat, rapi, dan tidak bikin pengguna mikir keras (apalagi harus tanya ke grup).
+            </p>
+          </div>
+        </div>
+
+      </section>
     </main>
   );
 }
