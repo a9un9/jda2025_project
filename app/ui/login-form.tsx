@@ -83,7 +83,24 @@ export default function LoginForm() {
             </>
           )}
         </div>
+          <div className="mt-4">
+            <label
+              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              htmlFor="Email: user@nextmail.com"
+            >
+              Email: user@nextmail.com
+            </label>
+          </div>
+          <div className="mt-4">
+            <label
+              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              htmlFor="Password: 123456"
+            >
+              Password: 123456
+            </label>
+          </div>
       </div>
     </form>
+    
   );
 }

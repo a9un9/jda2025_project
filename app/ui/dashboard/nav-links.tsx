@@ -4,6 +4,10 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  UserIcon,
+  EnvelopeIcon,
+  InformationCircleIcon,
+  CubeIcon
 } from '@heroicons/react/24/outline';
 
 // Map of links to display in the side navigation.
@@ -16,6 +20,10 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
+  { name: 'Profiles', href: '/dashboard/profiles', icon: UserIcon },
+  { name: 'Contacts', href: '/dashboard/contacts', icon: EnvelopeIcon },
+  { name: 'Abouts', href: '/dashboard/abouts', icon: InformationCircleIcon },
 ];
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
