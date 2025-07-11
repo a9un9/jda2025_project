@@ -7,8 +7,9 @@ const products = [
   { id: '3', name: 'Produk C', description: 'Deskripsi Produk C', price: 300 },
 ];
 
-export default function Page({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id);
+export default async function Page(props: any) {
+  const { id } = await props.params;
+  const product = products.find((p) => p.id === id);
 
   if (!product) return notFound();
 
