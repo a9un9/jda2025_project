@@ -15,7 +15,7 @@ export default function Page() {
         href="/dashboard"
         className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-500"
       >
-        Balik ke Beranda
+        Balik ke Customers
       </Link>
       <p className="mt-10 text-sm text-gray-400">Kode kesalahan: 404</p>
     </main>
