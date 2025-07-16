@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function UserPage() {
   const [users, setUsers] = useState([]);
@@ -83,7 +84,13 @@ export default function UserPage() {
       <ul>
         {users.map((user) => (
           <li key={user.id} className="mb-2">
-            {user.name} - {user.alamat}
+            {/* {user.name} - {user.alamat} */}
+            <Link
+              href={`/dashboard/users/${user.id}`}
+              className="text-blue-600 hover:underline hover:text-blue-800 transition"
+            >
+              {user.name} - {user.alamat}
+            </Link>
             <button
               onClick={() => handleEdit(user)}
               className="ml-2 text-yellow-500"
