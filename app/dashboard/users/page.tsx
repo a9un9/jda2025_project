@@ -2,37 +2,38 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+type User = {
+  id: number;
+  name: string;
+  alamat: string;
+};
+
 export default function UserPage() {
-  const [users, setUsers] = useState([]);
-  const [form, setForm] = useState({ name: '', alamat: '' });
-  const [editId, setEditId] = useState(null);
+  const [users, setUsers] = useState<User[]>([]);
+  const [form, setForm] = useState<{ name: string; alamat: string }>({ name: '', alamat: '' });
+  const [editId, setEditId] = useState<number | null>(null);
 
   const fetchUsers = async () => {
     const res = await fetch('/api/user');
-    const data = await res.json();
+    const data: User[] = await res.json();
     setUsers(data);
   };
 
   const handleSubmit = async () => {
-    if (editId) {
-      await fetch('/api/user', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: editId, ...form }),
-      });
-    } else {
-      await fetch('/api/user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-    }
+    const payload = editId ? { id: editId, ...form } : form;
+
+    await fetch('/api/user', {
+      method: editId ? 'PUT' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
     setForm({ name: '', alamat: '' });
     setEditId(null);
     fetchUsers();
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     await fetch('/api/user', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -41,7 +42,7 @@ export default function UserPage() {
     fetchUsers();
   };
 
-  const handleEdit = (user) => {
+  const handleEdit = (user: User) => {
     setForm({ name: user.name, alamat: user.alamat });
     setEditId(user.id);
   };
@@ -84,7 +85,6 @@ export default function UserPage() {
       <ul>
         {users.map((user) => (
           <li key={user.id} className="mb-2">
-            {/* {user.name} - {user.alamat} */}
             <Link
               href={`/dashboard/users/${user.id}`}
               className="text-blue-600 hover:underline hover:text-blue-800 transition"
