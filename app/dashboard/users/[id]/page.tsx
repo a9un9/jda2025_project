@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import getBaseUrl from '@/app/lib/getBaseUrl';
 
 type User = {
   id: number;
@@ -8,7 +7,7 @@ type User = {
 };
 
 async function getUser(id: string): Promise<User | undefined> {
-  const res = await fetch(`${getBaseUrl()}/api/user`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/user`, {
     cache: 'no-store',
   });
 
@@ -18,7 +17,6 @@ async function getUser(id: string): Promise<User | undefined> {
   return data.find((u) => u.id === parseInt(id));
 }
 
-// ✅ Tidak perlu pakai generic PageProps apapun!
 export default async function UserDetail({
   params,
 }: {
@@ -33,12 +31,8 @@ export default async function UserDetail({
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Detail User</h1>
-      <p>
-        <strong>Nama:</strong> {user.name}
-      </p>
-      <p>
-        <strong>Alamat:</strong> {user.alamat}
-      </p>
+      <p><strong>Nama:</strong> {user.name}</p>
+      <p><strong>Alamat:</strong> {user.alamat}</p>
       <br />
       <Link
         href="/dashboard/users"
