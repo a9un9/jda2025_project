@@ -12,6 +12,11 @@ async function getUser(id: string): Promise<User | undefined> {
     cache: 'no-store',
   });
 
+  if (!res.ok) {
+    // Jika fetch gagal, kembalikan undefined
+    return undefined;
+  }
+
   const data: User[] = await res.json();
   return data.find((u) => u.id === parseInt(id));
 }
@@ -39,7 +44,7 @@ export default async function UserDetail({ params }: PageProps) {
         href="/dashboard/users"
         className="inline-block mt-4 text-blue-500 hover:text-blue-700 text-sm underline"
       >
-        ← Kembali ke Menu User
+        &larr; Kembali ke Menu User
       </Link>
     </div>
   );
