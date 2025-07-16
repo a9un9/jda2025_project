@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import getBaseUrl from 'app/lib/getBaseUrl';
+import getBaseUrl from '../../../lib/getBaseUrl';
+
 
 type User = {
   id: number;
