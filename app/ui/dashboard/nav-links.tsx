@@ -7,7 +7,8 @@ import {
   UserIcon,
   EnvelopeIcon,
   InformationCircleIcon,
-  CubeIcon
+  CubeIcon,
+  IdentificationIcon
 } from '@heroicons/react/24/outline';
 
 // Map of links to display in the side navigation.
@@ -21,7 +22,8 @@ const links = [
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
   { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
-  { name: 'Profiles', href: '/dashboard/profiles', icon: UserIcon },
+  { name: 'Users (array static)', href: '/dashboard/users', icon: UserIcon },
+  { name: 'Profiles', href: '/dashboard/profiles', icon: IdentificationIcon },
   { name: 'Contacts', href: '/dashboard/contacts', icon: EnvelopeIcon },
   { name: 'Abouts', href: '/dashboard/abouts', icon: InformationCircleIcon },
 ];
@@ -49,7 +51,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 		 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[28px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 		 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
               {
                 'bg-sky-100 text-blue-600': pathname === link.href,
               },
