@@ -16,7 +16,13 @@ async function getUser(id: string): Promise<User | undefined> {
   return data.find((u) => u.id === parseInt(id));
 }
 
-export default async function UserDetail({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function UserDetail({ params }: PageProps) {
   const user = await getUser(params.id);
 
   if (!user) {
