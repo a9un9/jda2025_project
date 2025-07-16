@@ -13,12 +13,17 @@ async function getUser(id: string): Promise<User | undefined> {
   });
 
   if (!res.ok) return undefined;
+
   const data: User[] = await res.json();
   return data.find((u) => u.id === parseInt(id));
 }
 
-// ✅ pastikan tidak async di tipe params
-export default async function UserDetail({ params }: UserDetailPageProps) {
+// ✅ Tidak perlu pakai generic PageProps apapun!
+export default async function UserDetail({
+  params,
+}: {
+  params: { id: string };
+}) {
   const user = await getUser(params.id);
 
   if (!user) {
@@ -28,8 +33,12 @@ export default async function UserDetail({ params }: UserDetailPageProps) {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Detail User</h1>
-      <p><strong>Nama:</strong> {user.name}</p>
-      <p><strong>Alamat:</strong> {user.alamat}</p>
+      <p>
+        <strong>Nama:</strong> {user.name}
+      </p>
+      <p>
+        <strong>Alamat:</strong> {user.alamat}
+      </p>
       <br />
       <Link
         href="/dashboard/users"
@@ -40,9 +49,3 @@ export default async function UserDetail({ params }: UserDetailPageProps) {
     </div>
   );
 }
-
-type UserDetailPageProps = {
-  params: {
-    id: string;
-  };
-};
