@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import getBaseUrl from '../../../lib/getBaseUrl';
+import getBaseUrl from '@/app/lib/getBaseUrl';
 
 
 type User = {
