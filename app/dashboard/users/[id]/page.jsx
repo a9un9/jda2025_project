@@ -1,13 +1,11 @@
 import { use } from 'react';
 import Link from 'next/link';
+import { getBaseUrl } from '../../../lib/getBaseUrl';
 
 async function getUser(id) {
-//   const res = await fetch(`http://localhost:3000/api/user`);
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const res = await fetch(`${baseUrl}/api/user`, {
-    cache: 'no-store', // opsional untuk selalu ambil data fresh
-    });
-
+  const res = await fetch(`${getBaseUrl()}/api/user`, {
+    cache: 'no-store',
+  });
 
   const data = await res.json();
   return data.find((u) => u.id === parseInt(id));
