@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import getBaseUrl from '@/app/lib/getBaseUrl';
 
-
 type User = {
   id: number;
   name: string;
@@ -13,20 +12,13 @@ async function getUser(id: string): Promise<User | undefined> {
     cache: 'no-store',
   });
 
-  if (!res.ok) {
-    // Jika fetch gagal, kembalikan undefined
-    return undefined;
-  }
-
+  if (!res.ok) return undefined;
   const data: User[] = await res.json();
   return data.find((u) => u.id === parseInt(id));
 }
 
-export default async function UserDetail({
-  params,
-}: {
-  params: { id: string };
-}) {
+// ✅ pastikan tidak async di tipe params
+export default async function UserDetail({ params }: UserDetailPageProps) {
   const user = await getUser(params.id);
 
   if (!user) {
@@ -43,8 +35,14 @@ export default async function UserDetail({
         href="/dashboard/users"
         className="inline-block mt-4 text-blue-500 hover:text-blue-700 text-sm underline"
       >
-        &larr; Kembali ke Menu User
+        ← Kembali ke Menu User
       </Link>
     </div>
   );
 }
+
+type UserDetailPageProps = {
+  params: {
+    id: string;
+  };
+};
