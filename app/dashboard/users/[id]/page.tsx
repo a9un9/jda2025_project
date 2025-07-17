@@ -28,12 +28,7 @@ export async function generateStaticParams() {
     id: user.id.toString(),
   }));
 }
-
-export default async function Page({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function Page({ params }: any) {
   const user = await getUser(params.id);
 
   if (!user) {
