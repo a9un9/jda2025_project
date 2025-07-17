@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 
 type User = {
@@ -18,13 +19,11 @@ async function getUser(id: string): Promise<User | undefined> {
   return data.find((u) => u.id === parseInt(id));
 }
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function UserDetail({ params }: PageProps) {
+export default async function UserDetail({
+  params,
+}: {
+  params: { id: string };
+}) {
   const user = await getUser(params.id);
 
   if (!user) {
