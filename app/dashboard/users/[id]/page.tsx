@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 import Link from 'next/link';
 
 type User = {
@@ -17,6 +15,18 @@ async function getUser(id: string): Promise<User | undefined> {
 
   const data: User[] = await res.json();
   return data.find((u) => u.id === parseInt(id));
+}
+
+export async function generateStaticParams() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/user`, {
+    cache: 'no-store',
+  });
+
+  const users: User[] = await res.json();
+
+  return users.map((user) => ({
+    id: user.id.toString(),
+  }));
 }
 
 export default async function UserDetail({
